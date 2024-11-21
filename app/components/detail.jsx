@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function Detail() {
+function DetailComponent() {
     const searchParams = useSearchParams();
     const productName = searchParams.get("product") || "Default Product";
     const productDiscount = searchParams.get("discountedPrice") || "Free";
-    const imagebesar = searchParams.get("images") || "/benda1.png"
+    const imagebesar = searchParams.get("images") || "/benda1.png";
 
-    const images = [
-        imagebesar,
-        "/bghero.jpg",
-    ];
+    const images = [imagebesar, "/bghero.jpg"];
     const [mainImage, setMainImage] = useState(images[0]);
 
     return (
@@ -22,8 +19,8 @@ export default function Detail() {
             <div className="mb-5 text-sm text-gray-500">
                 <Link href="/" className="text-slate-700 font-Montserrat font-semibold text-xl hover:underline">
                     Home
-                </Link> 
-                <span className="mx-1 text-base">{">"}</span> {/* Ganti / dengan > */}
+                </Link>
+                <span className="mx-1 text-base">{">"}</span>
                 <Link href="/shop" className="font-Montserrat text-xl hover:underline">
                     Shop
                 </Link>
@@ -34,11 +31,7 @@ export default function Detail() {
                 {/* Image Section */}
                 <div className="flex-1">
                     <div className="relative h-[50vh] sm:h-[70vh] w-full bg-gray-100 rounded-md overflow-hidden">
-                        <img
-                            src={mainImage}
-                            alt="Main"
-                            className="object-cover w-full h-full"
-                        />
+                        <img src={mainImage} alt="Main" className="object-cover w-full h-full" />
                         {/* Arrow Navigation */}
                         <button
                             className="absolute top-1/2 left-0 transform -translate-y-1/2 text-gray-700 bg-white rounded-full p-2 shadow hover:bg-gray-100"
@@ -84,9 +77,7 @@ export default function Detail() {
                 <div className="flex-1 mt-3 space-y-4">
                     <h1 className="text-2xl mt-2 font-bold font-Montserrat text-gray-800">{productName}</h1>
                     <div className="flex items-center gap-2 font-Montserrat">
-                        <span className="text-yellow-500 text-4xl">
-                            ★★★★★
-                        </span>
+                        <span className="text-yellow-500 text-4xl">★★★★★</span>
                         <span className="text-sm text-gray-500">(10 Reviews)</span>
                     </div>
                     <p className="text-3xl mt-3 font-semibold font-Montserrat text-gray-900">{productDiscount}</p>
@@ -102,14 +93,9 @@ export default function Detail() {
 
                     {/* Color Selection */}
                     <div className="flex items-center py-5 gap-2">
-                        {["bg-green-500", "bg-blue-500", "bg-orange-500", "bg-black"].map(
-                            (color, idx) => (
-                                <div
-                                    key={idx}
-                                    className={`${color} w-6 h-6 rounded-full cursor-pointer`}
-                                />
-                            )
-                        )}
+                        {["bg-green-500", "bg-blue-500", "bg-orange-500", "bg-black"].map((color, idx) => (
+                            <div key={idx} className={`${color} w-6 h-6 rounded-full cursor-pointer`} />
+                        ))}
                     </div>
 
                     {/* Buttons */}
@@ -117,18 +103,20 @@ export default function Detail() {
                         <button className="bg-blue-500 text-white font-Montserrat px-6 py-2 rounded-md hover:bg-blue-600">
                             Select Options
                         </button>
-                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
-                            ❤
-                        </button>
-                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
-                            🛒
-                        </button>
-                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
-                            👁
-                        </button>
+                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">❤</button>
+                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">🛒</button>
+                        <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">👁</button>
                     </div>
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function Detail() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <DetailComponent />
+        </Suspense>
     );
 }
