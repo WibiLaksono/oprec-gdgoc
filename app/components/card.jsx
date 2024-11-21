@@ -66,7 +66,7 @@ export default function Card() {
     ];
 
     const handleCardClick = (product) => {
-        router.push(`/shop?product=${encodeURIComponent(product.name)}`);
+        router.push(`/shop?product=${encodeURIComponent(product.name)}&discountedPrice=${encodeURIComponent(product.discountedPrice)}&images=${encodeURIComponent(product.image)}`);
     };
 
     return (
@@ -92,17 +92,17 @@ export default function Card() {
                             />
                         </div>
                         <div className="h-[30%] flex flex-col justify-center px-4">
-                            <h1 className="font-bold text-lg text-slate-700">
+                            <h1 className="font-bold font-Montserrat text-lg text-slate-700">
                                 {product.name}
                             </h1>
-                            <h2 className="text-sm text-slate-500">
+                            <h2 className="text-sm font-Montserrat text-slate-500">
                                 {product.description}
                             </h2>
                             <p className="mt-2">
-                                <span className="line-through text-sm text-slate-400">
+                                <span className="line-through font-Montserrat text-sm text-slate-400">
                                     {product.originalPrice}
                                 </span>{" "}
-                                <span className="text-lg font-bold text-green-600">
+                                <span className="text-lg font-bold font-Montserrat text-green-600">
                                     {product.discountedPrice}
                                 </span>
                             </p>

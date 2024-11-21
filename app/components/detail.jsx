@@ -6,22 +6,23 @@ import { useState } from "react";
 export default function Detail() {
     const searchParams = useSearchParams();
     const productName = searchParams.get("product") || "Default Product";
+    const productDiscount = searchParams.get("discountedPrice") || "Free";
+    const imagebesar = searchParams.get("images") || "/benda1.png"
 
     const images = [
-        "/benda1.png",
-        "/benda2.png",
-        "/benda3.png",
+        imagebesar,
+        "/bghero.jpg",
     ];
     const [mainImage, setMainImage] = useState(images[0]);
 
     return (
-        <div className="mt-5 mx-[7vw] h-[100vh] flex flex-col gap-5">
+        <div className="mt-5 mb-20 mx-[7vw] flex flex-col gap-8">
             {/* Breadcrumb */}
             <div className="mb-5 text-sm text-gray-500">
                 <a href="/" className="text-slate-700 font-Montserrat font-semibold text-xl hover:underline">
                     Home
                 </a> 
-                <span className="mx-2 text-xl">{">"}</span> {/* Ganti / dengan > */}
+                <span className="mx-1 text-base">{">"}</span> {/* Ganti / dengan > */}
                 <a href="/shop" className="font-Montserrat text-xl hover:underline">
                     Shop
                 </a>
@@ -31,7 +32,7 @@ export default function Detail() {
             <div className="flex flex-col md:flex-row gap-14 w-full">
                 {/* Image Section */}
                 <div className="flex-1">
-                    <div className="relative h-[40vh] sm:h-[60vh] lg:h-[70vh] w-full bg-gray-100 rounded-md overflow-hidden">
+                    <div className="relative h-[50vh] sm:h-[70vh] w-full bg-gray-100 rounded-md overflow-hidden">
                         <img
                             src={mainImage}
                             alt="Main"
@@ -79,38 +80,39 @@ export default function Detail() {
                 </div>
 
                 {/* Product Details */}
-                <div className="flex-1">
-                    <h1 className="text-2xl mt-5 font-bold font-Montserrat text-gray-800">{productName}</h1>
-                    <div className="flex mt-2 items-center gap-2">
+                <div className="flex-1 mt-3 space-y-4">
+                    <h1 className="text-2xl mt-2 font-bold font-Montserrat text-gray-800">{productName}</h1>
+                    <div className="flex items-center gap-2 font-Montserrat">
                         <span className="text-yellow-500 text-4xl">
                             ★★★★★
                         </span>
-                        <span className="text-sm font-Montserrat text-gray-500">(10 Reviews)</span>
+                        <span className="text-sm text-gray-500">(10 Reviews)</span>
                     </div>
-                    <p className="text-3xl mt-4 font-semibold font-Montserrat text-gray-900">$1,139.33</p>
-                    <p className="text-sm text-gray-500">
-                        Availability: <span className="text-green-500 font-Montserrat font-medium">In Stock</span>
+                    <p className="text-3xl mt-3 font-semibold font-Montserrat text-gray-900">{productDiscount}</p>
+                    <p className="text-sm font-Montserrat text-gray-500">
+                        Availability: <span className="text-green-500 font-medium ">In Stock</span>
                     </p>
-                    <p className="text-gray-600 font-Montserrat mt-10">
+                    <p className="text-gray-600 font-Montserrat py-6">
                         Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT
                         official consequent door ENIM RELIT Mollie. Excitation venial consequent
                         sent nostrum met.
                     </p>
+                    <img src="hr.svg" alt="" />
 
                     {/* Color Selection */}
-                    <div className="flex mt-20 items-center gap-2">
+                    <div className="flex items-center py-5 gap-2">
                         {["bg-green-500", "bg-blue-500", "bg-orange-500", "bg-black"].map(
                             (color, idx) => (
                                 <div
                                     key={idx}
-                                    className={`${color} w-8 h-8 rounded-full cursor-pointer`}
+                                    className={`${color} w-6 h-6 rounded-full cursor-pointer`}
                                 />
                             )
                         )}
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex mt-10 items-center gap-4">
+                    <div className="flex items-center py-8 gap-4">
                         <button className="bg-blue-500 text-white font-Montserrat px-6 py-2 rounded-md hover:bg-blue-600">
                             Select Options
                         </button>

@@ -20,7 +20,7 @@ export default function Hero (){
                             <h1 className="text-white text-2xl md:text-6xl mt-32 font-bold font-Montserrat">Give Your Money</h1>
                         </div>
                         <div className="w-[100%] h-[50%] md:w-[50%] md:h-[100%] flex justify-center items-end">
-                            <button className="bg-white text-black mb-10 text-sm font-semibold font-Montserrat w-[90%] h-[20%] md:w-[70%] md:h-[10%] xl:w-[50%] rounded-lg">
+                            <button className="bg-white text-black mb-10 text-sm font-semibold font-Montserrat w-[90%] h-[20%] md:w-[70%] md:h-[10%] xl:w-[50%] rounded-lg hover:bg-slate-200">
                                 Mulai Berbelanja
                             </button>
                         </div>
