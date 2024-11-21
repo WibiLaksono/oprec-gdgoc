@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -19,13 +20,13 @@ export default function Detail() {
         <div className="mt-5 mb-20 mx-[7vw] flex flex-col gap-8">
             {/* Breadcrumb */}
             <div className="mb-5 text-sm text-gray-500">
-                <a href="/" className="text-slate-700 font-Montserrat font-semibold text-xl hover:underline">
+                <Link href="/" className="text-slate-700 font-Montserrat font-semibold text-xl hover:underline">
                     Home
-                </a> 
+                </Link> 
                 <span className="mx-1 text-base">{">"}</span> {/* Ganti / dengan > */}
-                <a href="/shop" className="font-Montserrat text-xl hover:underline">
+                <Link href="/shop" className="font-Montserrat text-xl hover:underline">
                     Shop
-                </a>
+                </Link>
             </div>
 
             {/* Main Content */}

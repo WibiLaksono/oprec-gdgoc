@@ -1,6 +1,7 @@
     "use client"
 
-    import { useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 
     export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -95,32 +96,32 @@
                 menuOpen ? "menu-open" : "menu-close"
             } sm:hidden absolute top-16 left-0 w-full bg-white shadow-md z-10 transition-all duration-300 ease-in-out`}
             >
-            <ul className="flex flex-col font-Montserrat items-center py-4 space-y-4">
-                <li className="text-black font-semibold">Home</li>
-                <li className="text-black font-semibold">Shop +</li>
-                <li className="text-black font-semibold">About</li>
-                <li className="text-black font-semibold">Blog</li>
-                <li className="text-black font-semibold">Contact</li>
-                <li className="text-black font-semibold">Pages</li>
-            </ul>
+            <div className="flex flex-col font-Montserrat items-center py-4 space-y-4">
+                <Link href="#" className="text-black font-semibold">Home</Link>
+                <Link href="#" className="text-black font-semibold">Shop +</Link>
+                <Link href="https://portofoliobibi.vercel.app/" className="text-black font-semibold">About</Link>
+                <Link href="https://github.com/WibiLaksono" className="text-black font-semibold">Blog</Link>
+                <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=wibilaksonowijaya@mail.ugm.ac.id&su=DISKUSI%20DARI%20WEB%20PORTOFOLIO" target="" className="text-black font-semibold">Contact</Link>
+                <Link href="#" className="text-black font-semibold">Pages</Link>
+            </div>
             </div>
 
             {/* Menu untuk layar besar */}
             <div className="hidden sm:flex flex-row gap-3 md:gap-4">
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Home</a>
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Shop +</a>
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">About</a>
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Blog</a>
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Contact</a>
-                <a href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Pages</a>
+                <Link href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Home</Link>
+                <Link href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Shop +</Link>
+                <Link href="https://portofoliobibi.vercel.app/" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">About</Link>
+                <Link href="https://github.com/WibiLaksono" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Blog</Link>
+                <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=wibilaksonowijaya@mail.ugm.ac.id&su=DISKUSI%20DARI%20WEB%20PORTOFOLIO" target="" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Contact</Link>
+                <Link href="#" className="text-slate-500 hover:text-slate-800 text-xs lg:text-sm font-Montserrat font-bold">Pages</Link>
             </div>
             <div className="hidden sm:flex flex-row gap-2 md:gap-4">
                     <div className="flex flex-row gap-2">
                         <svg className="h-4 w-4 lg:h-5 lg:w-5 text-blue-400"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
                         <div className="flex flex-row gap-1">
-                            <a href="" className="text-xs lg:text-sm font-Montserrat text-blue-400 font-bold hover:text-blue-800">Login</a>
+                            <Link href="#" className="text-xs lg:text-sm font-Montserrat text-blue-400 font-bold hover:text-blue-800">Login</Link>
                             <p className="text-xs lg:text-sm font-Montserrat text-blue-400 font-bold">/</p>
-                            <a href="" className="text-xs lg:text-sm font-Montserrat text-blue-400 font-bold hover:text-blue-800">Register</a>
+                            <Link href="#" className="text-xs lg:text-sm font-Montserrat text-blue-400 font-bold hover:text-blue-800">Register</Link>
                         </div>
                     </div>
                     <div className="flex flex-row gap-2 lg:gap-5">
